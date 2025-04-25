@@ -1,2 +1,5 @@
 # Virtual Environment
 .venv
+
+# Sample Transaction
+sample_bank_statements.csv
