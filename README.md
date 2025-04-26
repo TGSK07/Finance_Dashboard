@@ -1,4 +1,4 @@
-# <img src="/assests/icon.png" alt="Icon" width="10" height="10"> Personal Finance Dashboard
+# <img src="/assests/icon.png" alt="Icon" width="40" height="40"> Personal Finance Dashboard
 
 Personal Finance Dashboard is a Streamlit-based web app that helps users visualize and manage their financial transactions by uploading a `.csv` file.
 
