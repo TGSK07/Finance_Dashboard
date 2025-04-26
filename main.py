@@ -34,6 +34,14 @@ def cat_transactions(df):
                 df.at[idx,"Category"] = cat
     return df
 
+def add_keyword_to_cat(cat,keyword):
+    keyword = keyword.strip()
+    if keyword and keyword not in st.session_state.categories[cat]:
+        st.session_state.categories[cat].append(keyword)
+        save_cat()
+        return True
+    return False
+
 
 def load_transactions(file):
     try:
@@ -59,6 +67,8 @@ def main():
             debit_data = df[df['Debit/Credit']=='Debit'].copy() 
             credit_data = df[df['Debit/Credit']=='Credit'].copy() 
 
+            st.session_state
+
             tab1, tab2 = st.tabs(['Expenses (Debits)',"Payments (Credits)"])
 
             with tab1:
@@ -71,8 +81,27 @@ def main():
                         st.success(f"{new_cat} category added successfully.")
                         st.rerun()
 
-                st.write(debit_data)
-
+                st.subheader("Your Expense")
+                edit_df = st.data_editor(
+                    st.session_state.debits_df[['Date','Details','Amount','Category']],
+                    column_config = {
+                        'Date': st.column_config.DateColumn('Date',format='DD/MM/YYYY'),
+                        'Amount':st.column_config.NumberColumn('Amount',format="%.2f"),
+                        "Category":st.column_config.SelectionColumn(
+                            'Category',options=list(st.session_state.categories.keys())
+                        )
+                    },
+                    hide_index = True, use_container_width=True,key='category_editor'
+                )
+                save_button = st.button('Apply Changes',types='primary')
+                if save_button:
+                    for idx,row in edit_df.iterrows():
+                        if row["Category"] != st.session_state.debits_df.at[idx,'Category']:
+                            continue
+                        details = row['Details']
+                        st.session_state.debits_df.at[idx,'Category'] = new_cat
+                        add_keyword_to_cat(new_cat,details)
+                
             with tab2:
                 st.write(credit_data)
 
