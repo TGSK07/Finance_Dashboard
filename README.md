@@ -21,8 +21,7 @@ Personal Finance Dashboard is a Streamlit-based web app that helps users visuali
 - `sample_data.csv`: Sample finance statement file.
 
 ## Demo
-🎥 
-https://github.com/user-attachments/assets/b20c771e-00d1-452a-893f-deaebb847084
+[🎥 ](https://github.com/user-attachments/assets/b20c771e-00d1-452a-893f-deaebb847084)
 
 
 ## Installation
