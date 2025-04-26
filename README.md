@@ -9,7 +9,7 @@ Personal Finance Dashboard is a Streamlit-based web app that helps users visuali
 - View and edit **Expenses (Debits)** and **Payments (Credits)** in separate tabs.
 - Editable table for expenses (date, details, amount, and category).
 - Summary of total expenses and total payments.
-- Add new custom categories (saved in `categories.json`).
+- Add new custom categories.
 - Apply changes during the session.
 - Pie chart visualization of expenses by category.
 
