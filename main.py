@@ -50,6 +50,15 @@ def main():
             tab1, tab2 = st.tabs(['Express (Debits)',"Payments (Credit)"])
 
             with tab1:
+                new_cat = st.text_input("New Category Name")
+                add_button = st.button("Add Category")
+                if add_button and new_cat:
+                    if new_cat not in st.session_state.categories:
+                        st.session_state.categories[new_cat] = []
+                        save_cat()
+                        st.success(f"{new_cat} category added successfully.")
+                        st.rerun()
+                        
                 st.write(debit_data)
 
             with tab2:
