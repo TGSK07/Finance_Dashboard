@@ -47,7 +47,7 @@ def main():
             debit_data = df[df['Debit/Credit']=='Debit'].copy() 
             credit_data = df[df['Debit/Credit']=='Credit'].copy() 
 
-            tab1, tab2 = st.tabs(['Express (Debits)',"Payments (Credit)"])
+            tab1, tab2 = st.tabs(['Expenses (Debits)',"Payments (Credits)"])
 
             with tab1:
                 new_cat = st.text_input("New Category Name")
@@ -58,7 +58,7 @@ def main():
                         save_cat()
                         st.success(f"{new_cat} category added successfully.")
                         st.rerun()
-                        
+
                 st.write(debit_data)
 
             with tab2:
