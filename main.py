@@ -3,7 +3,6 @@ import pandas as pd
 import plotly.express as px
 import json
 import os
-import time
 
 st.set_page_config(page_title="Personal Finance Dashbaord",page_icon="assests/icon.png",layout="wide")
 
